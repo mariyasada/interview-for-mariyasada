@@ -10,7 +10,7 @@ const FilterBar = () => {
   return (
     <div className="filtercontainer">
       <div className="timeframefilter">
-        <CiFilter size={20} />
+        <CiCalendar size={20} />
         <select name="timeframe" id="timeframefilter" className="selectoption">
           {timeFrameFilter?.map((timeframe) => (
             <option value={timeframe} key={timeframe} className="option">

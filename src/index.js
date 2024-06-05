@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { SpaceDataProvider } from "./context/SpaceDataContext";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <SpaceDataProvider>
-      <App />
-    </SpaceDataProvider>
+    <BrowserRouter>
+      <SpaceDataProvider>
+        <App />
+      </SpaceDataProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

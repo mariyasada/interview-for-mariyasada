@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.status-failed{
+  background: rgb(238, 205, 205);
+  color: red;
+}
+.status-success{
+  background: rgb(197, 237, 197);
+  color: green;
+}
+.status-upcoming{
+  background: rgb(248, 248, 174);
+  color: darkgoldenrod
+}
+.table-row-data-div{
+  padding: 4px;
+  width: 75px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+}

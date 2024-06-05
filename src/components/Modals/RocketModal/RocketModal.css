@@ -1,0 +1,106 @@
+.modal-outer-container{    
+        background-color: rgba(32, 31, 31, 0.5);
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        z-index: 20;  
+}
+.modal-container{
+    background-color: white;
+    height:600px;
+    width: 500px;
+    padding: 1rem 1.5rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%,-50%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    
+}
+.close-icon{
+    position: absolute;
+    right: 3%;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+.image-and-status-container{
+    display: flex;
+    flex-direction: row;
+   gap:1rem;
+   padding: 7px;
+}
+.status-and-name-container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: flex-start;
+
+}
+
+.description {
+    position: relative; 
+    max-height: 200px;
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+   word-wrap: nowrap;
+  
+  }
+  
+  .link {
+     margin-left: 10px;;
+    color:blueviolet;
+    cursor: pointer; 
+  }
+.status-container{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+}
+.status-container>div{
+    font-weight: bold;
+}
+.all-details-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+}
+.all-details-container >div{
+    display: flex;
+gap:3rem;
+    height: 37px;
+    align-items: center;
+    border-bottom: 1px solid rgb(198, 196, 196);
+    margin-bottom: 5px;
+}
+.all-details-container >div>div{
+    width: 170px;
+    font-size: 14px;
+}
+
+.rocket_name{
+    margin-top: -23px;
+    font-weight: 400;
+}
+.icons-container{
+    display: flex;
+    gap:10px;
+    align-items: center;
+    cursor: pointer;
+    margin-top: -10px;
+    
+}

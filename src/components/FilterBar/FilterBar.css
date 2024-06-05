@@ -1,0 +1,32 @@
+.timeframefilter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:3px;
+    color:rgb(58, 58, 58);
+    cursor: pointer;
+}
+.selectoption{
+    color:rgb(58, 58, 58);
+    width: 150px;
+    outline: none;
+    border: none;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: white;
+  transition: border-color 0.3s ease-in-out;
+    
+}
+
+.selectoption.option{
+   padding: 7px;
+}
+
+.filtercontainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    width: 80%;   
+}

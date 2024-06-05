@@ -9,8 +9,9 @@ export const timeFrameFilter = [
 ];
 
 export const launchesDetails = [
-  "All Launches",
-  "Upcoming Launches",
-  "Successful Launches",
-  "Failed Launches",
+  { name: "All Launches", value: "launches" },
+  { name: "Upcoming Launches", value: "upcomingLaunches" },
+  { name: "Past Launches", value: "pastlaunches" },
+  { name: "SuccessFul Launches", value: "successlaunches" },
+  { name: "Failed Launches", value: "failedlaunches" },
 ];

@@ -2,12 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color:rgb(58, 58, 58);
-    cursor: pointer;
+    color:#4B5563;
+    font-weight: 500;
+   
 }
-
 .selectoption{
-    color:rgb(58, 58, 58);
+   color: #4B5563;
     width: 150px;
     outline: none;
     border: none;
@@ -17,6 +17,8 @@
   background-color: white;
   transition: border-color 0.3s ease-in-out;
   cursor: pointer;
+  font-weight: 500;
+ 
 }
 
 option {
@@ -35,5 +37,17 @@ option {
     justify-content: space-between;
     align-items: center;
     height: fit-content;
-    width: 80%;   
+    width: 80%;  
+    height: 16px; 
+}
+
+.pastfilter{
+    display: flex;
+    gap:8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color:#4B5563;
+    font-weight: 500;
 }

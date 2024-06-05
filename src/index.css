@@ -17,7 +17,7 @@ code {
   color: red;
 }
 .status-success{
-  background: rgb(197, 237, 197);
+  background: #DEF7EC;
   color: green;
 }
 .status-upcoming{
@@ -25,8 +25,9 @@ code {
   color: darkgoldenrod
 }
 .table-row-data-div{
-  padding: 4px;
-  width: 75px;
+  padding: 4px 12px ;
+  width: 72px;
+  height: 21px;
   border-radius: 20px;
   text-align: center;
   font-weight: bold;

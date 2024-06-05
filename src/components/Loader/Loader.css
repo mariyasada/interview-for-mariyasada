@@ -1,14 +1,11 @@
 
-.loadercontainer{    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: red;
-   
-}
+
 .loader {
-    width: 50px;
-    --b: 8px; 
+    width: 100px;
+    --b: 80px; 
+    position: fixed;
+  top: 50%;
+  left: 50%;
     aspect-ratio: 1;
     border-radius: 50%;
     padding: 1px;
@@ -21,3 +18,6 @@
     animation:l4 1s infinite steps(10);
   }
   @keyframes l4 {to{transform: rotate(1turn)}}
+
+
+  

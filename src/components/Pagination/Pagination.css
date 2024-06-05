@@ -1,0 +1,39 @@
+
+.paginationcontainer{
+    margin-left: auto;
+    margin-right: 10rem;
+    padding: 0px ;
+    margin-top: 1rem;
+    border: 1px solid rgb(184, 178, 178);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-paginate {
+    outline: none;
+    text-align: center;
+    border: none;
+    width: 3rem;
+    padding: 0.8rem;
+    font-size: 1rem; 
+    background: transparent;   
+    border-right: 1px solid rgb(184, 178, 178); 
+  }
+  .cursor {
+    cursor: pointer;
+  }
+  .primary-btn {
+    width: 3rem;
+    cursor: pointer;
+    font-weight: 600;
+   background: transparent;
+   
+    
+    
+  }
+  .secondary-btn {
+    width: 3rem;
+    cursor: pointer;
+    background: transparent;
+   
+   
+  }

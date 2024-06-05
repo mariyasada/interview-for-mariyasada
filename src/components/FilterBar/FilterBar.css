@@ -2,25 +2,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:3px;
     color:rgb(58, 58, 58);
     cursor: pointer;
 }
+
 .selectoption{
     color:rgb(58, 58, 58);
     width: 150px;
     outline: none;
     border: none;
-  height: 40px;
+   height: 40px;
   padding: 10px;
   font-size: 16px;
   background-color: white;
   transition: border-color 0.3s ease-in-out;
-    
+  cursor: pointer;
 }
 
-.selectoption.option{
-   padding: 7px;
+option {
+    font-size: 16px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+ 
+
+.selected{
+    background: rgb(190, 187, 187);
 }
 
 .filtercontainer{

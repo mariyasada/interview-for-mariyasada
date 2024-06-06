@@ -16,7 +16,8 @@ const FilterBar = () => {
       <div className="pastfilter" onClick={() => setModal(true)}>
         <CiCalendar size={20} />
         <p>
-          {findRangeFilter(filters?.timeFrameFilter)?.name ?? "Past 6 Months"}
+          {findRangeFilter(filters?.timeFrameFilter)?.name ??
+            "Select TimeRange Filter"}
         </p>
         <span style={{ marginTop: "7px" }}>
           <IoIosArrowDown />

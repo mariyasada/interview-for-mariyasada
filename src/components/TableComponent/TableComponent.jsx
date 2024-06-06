@@ -54,7 +54,7 @@ const TableComponent = () => {
                     key={spaceData.flight_number}
                     className="table-content-row "
                     onClick={() => {
-                      // setModal(true);
+                      setModal(true);
                       setSingleRocketData(spaceData);
                     }}
                   >

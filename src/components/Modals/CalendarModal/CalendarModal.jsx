@@ -4,11 +4,22 @@ import { timeFrameFilter } from "../../FilterBar/constants";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useSpacexData } from "../../../context/SpaceDataContext";
+import { IoMdClose } from "react-icons/io";
+import { timeformat } from "../../utils";
 
 const CalendarModal = ({ setModal }) => {
-  const { filters, setFilters, value, setValue } = useSpacexData();
+  const {
+    filters,
+    setFilters,
+    value,
+    setValue,
+    isDateSelected,
+    setIsDateSelected,
+  } = useSpacexData();
   const onChangeHandler = (newDate) => {
+    setIsDateSelected(true);
     setValue(newDate);
+    localStorage.setItem("selectedDate", timeformat(newDate));
   };
 
   const handleFilterClick = (filterValue) => {
@@ -35,7 +46,9 @@ const CalendarModal = ({ setModal }) => {
       default:
         break;
     }
+    setIsDateSelected(false);
     setValue(newDate);
+    localStorage.setItem("selectedDate", timeformat(newDate));
     setFilters((prev) => ({
       ...prev,
       timeFrameFilter: filterValue,
@@ -43,14 +56,17 @@ const CalendarModal = ({ setModal }) => {
   };
 
   useEffect(() => {
-    if (filters.timeFrameFilter) {
+    if (filters.timeFrameFilter && !isDateSelected) {
       handleFilterClick(filters.timeFrameFilter);
     }
-  }, [filters.timeFrameFilter]);
+  }, [filters.timeFrameFilter, isDateSelected]);
 
   return (
     <div className="modal-outer-container">
-      <div className="modal-container-calender" onClick={() => setModal(false)}>
+      <div className="modal-container-calender">
+        <span className="close-icon">
+          <IoMdClose color="gray" size={25} onClick={() => setModal(false)} />
+        </span>
         <div className="filters">
           {timeFrameFilter?.map((filter) => (
             <div

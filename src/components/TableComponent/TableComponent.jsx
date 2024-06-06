@@ -8,7 +8,7 @@ import RocketModal from "../Modals/RocketModal/RocketModal";
 import { formatDateTime, getLaunchStatus } from "../utils";
 
 const TableComponent = () => {
-  const { spacexData, loading } = useSpacexData();
+  const { spacexData, loading, filters } = useSpacexData();
   const dataperPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -18,8 +18,10 @@ const TableComponent = () => {
   useEffect(() => {
     if (spacexData?.length > 0) {
       setTotalPages(Math.ceil(spacexData.length / dataperPage)); //111/12 ==> 10
+    } else {
+      setTotalPages(0);
     }
-  }, [spacexData, dataperPage]);
+  }, [spacexData, dataperPage, filters]);
 
   const endIndex = dataperPage * currentPage; // 12*1=12
   const startIndex = endIndex - dataperPage; //12-12=0
@@ -52,7 +54,7 @@ const TableComponent = () => {
                     key={spaceData.flight_number}
                     className="table-content-row "
                     onClick={() => {
-                      setModal(true);
+                      // setModal(true);
                       setSingleRocketData(spaceData);
                     }}
                   >

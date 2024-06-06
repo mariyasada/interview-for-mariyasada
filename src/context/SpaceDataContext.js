@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { timeformat } from "../components/utils";
 // import moment from "moment-timezone";
 
 const SpaceDataContex = createContext();
@@ -13,7 +14,13 @@ const SpaceDataContex = createContext();
 export const SpaceDataProvider = ({ children }) => {
   const [spacexData, setSpacexData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [value, setValue] = useState(new Date());
+  const [value, setValue] = useState(() => {
+    const storedDate = localStorage.getItem("selectedDate");
+    return storedDate ? new Date(storedDate) : new Date();
+  });
+  const [isDateSelected, setIsDateSelected] = useState(
+    !!localStorage.getItem("selectedDate")
+  );
   const [filters, setFilters] = useState({
     timeFrameFilter: "",
     launchFilter: "launches",
@@ -26,8 +33,7 @@ export const SpaceDataProvider = ({ children }) => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const date = new Date(value);
-      const selectedisoDateString = date.toISOString();
+      const date = timeformat(value);
       let url = "https://api.spacexdata.com/v3/launches";
       if (filters?.launchFilter) {
         switch (filters?.launchFilter) {
@@ -48,8 +54,9 @@ export const SpaceDataProvider = ({ children }) => {
             break;
         }
         if (filters?.timeFrameFilter !== "") {
-          url += `?launch_date_utc=${selectedisoDateString}`;
+          url += `?launch_date_utc=${date}`;
         }
+
         const { data } = await axios.get(url);
         setSpacexData(data);
       }
@@ -59,9 +66,11 @@ export const SpaceDataProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchData();
-  }, [filters?.launchFilter]);
+  }, [filters]);
+
   return (
     <SpaceDataContex.Provider
       value={{
@@ -72,6 +81,8 @@ export const SpaceDataProvider = ({ children }) => {
         handleSelectChange,
         value,
         setValue,
+        isDateSelected,
+        setIsDateSelected,
       }}
     >
       {children}

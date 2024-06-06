@@ -5,6 +5,7 @@ import "./FilterBar.css";
 import { useSpacexData } from "../../context/SpaceDataContext";
 import CalendarModal from "../Modals/CalendarModal/CalendarModal";
 import { IoIosArrowDown } from "react-icons/io";
+import { findRangeFilter } from "../utils";
 
 const FilterBar = () => {
   const { filters, setFilters, handleSelectChange } = useSpacexData();
@@ -14,7 +15,9 @@ const FilterBar = () => {
     <div className="filtercontainer">
       <div className="pastfilter" onClick={() => setModal(true)}>
         <CiCalendar size={20} />
-        <p>Past 6 Months</p>
+        <p>
+          {findRangeFilter(filters?.timeFrameFilter)?.name ?? "Past 6 Months"}
+        </p>
         <span style={{ marginTop: "7px" }}>
           <IoIosArrowDown />
         </span>
@@ -42,6 +45,17 @@ const FilterBar = () => {
             </option>
           ))}
         </select>
+        <div
+          className="clear-filters"
+          onClick={() =>
+            setFilters({
+              timeFrameFilter: "",
+              launchFilter: "launches",
+            })
+          }
+        >
+          <p>Clear filters</p>
+        </div>
       </div>
       {modal && <CalendarModal setModal={setModal} />}
     </div>

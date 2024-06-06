@@ -1,3 +1,6 @@
+import moment from "moment-timezone";
+import { timeFrameFilter } from "./FilterBar/constants";
+
 export const formatDateTime = (dateString) => {
   const date = new Date(dateString);
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -18,4 +21,14 @@ export const getLaunchStatus = (launch) => {
   } else {
     return "Failed";
   }
+};
+
+export const findRangeFilter = (value) =>
+  timeFrameFilter?.find((filter) => filter?.value === value);
+
+export const timeformat = (value) => {
+  const parsedDate = moment.tz(value, "DD MMMM YYYY HH:mm", "Asia/Kolkata");
+
+  const isoDateString = parsedDate.utc().format("YYYY-MM-DDTHH:mm:ss.SSS[Z]");
+  return isoDateString;
 };

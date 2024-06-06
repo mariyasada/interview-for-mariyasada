@@ -1,8 +1,10 @@
 import React from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import "./Pagination.css";
+import { useSpacexData } from "../../context/SpaceDataContext";
 
 const Pagination = ({ totalPages, setCurrentPage, currentPage }) => {
+  const { spacexData } = useSpacexData();
   const getPaginationGroup = () => {
     let startPage = Math.max(2, currentPage - 1);
     let endPage = Math.min(totalPages - 1, currentPage + 1);
@@ -22,10 +24,9 @@ const Pagination = ({ totalPages, setCurrentPage, currentPage }) => {
 
     return pages;
   };
-
   return (
     <>
-      {totalPages > 1 ? (
+      {spacexData?.length > 0 && totalPages > 1 ? (
         <div className="paginationcontainer">
           <button
             className={`btn-paginate ${

@@ -7,33 +7,34 @@
     border: 1px solid rgb(184, 178, 178);
     border-radius: 10px;
     cursor: pointer;
+    width: 240px;
+    height: 40px;
+
 }
 .btn-paginate {
     outline: none;
     text-align: center;
     border: none;
-    width: 3rem;
-    padding: 0.8rem;
-    font-size: 1rem; 
+    width: 40px;
+    padding: 0.7rem;
+    font-size: 14px; 
     background: transparent;   
+    color:#4B5563;
     border-right: 1px solid rgb(184, 178, 178); 
   }
   .cursor {
     cursor: pointer;
   }
   .primary-btn {
-    width: 3rem;
+    width: 40px;
     cursor: pointer;
     font-weight: 600;
-   background: transparent;
-   
-    
+   background: transparent;   
     
   }
   .secondary-btn {
-    width: 3rem;
+    width: 40px;
     cursor: pointer;
     background: transparent;
-   
    
   }

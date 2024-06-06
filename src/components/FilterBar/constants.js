@@ -1,11 +1,10 @@
 export const timeFrameFilter = [
-  "Past 6 Months",
-  "Last 6 Months",
-  "Past Week",
-  "Past Month",
-  "Past 3 Months",
-  "Past Year",
-  "Past 2 year",
+  { name: "Past Week", value: "pastweek" },
+  { name: "Past Month", value: "pastmonth" },
+  { name: "Past 3 Months", value: "pastthreemonths" },
+  { name: "Past 6 Months", value: "pastsixmonths" },
+  { name: "Past Year", value: "pastyear" },
+  { name: "Past 2 years", value: "pasttwoyears" },
 ];
 
 export const launchesDetails = [

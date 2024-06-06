@@ -4,44 +4,29 @@ import "./TableComponent.css";
 import { useSpacexData } from "../../context/SpaceDataContext";
 import Loader from "../Loader/Loader";
 import Pagination from "../Pagination/Pagination";
+import RocketModal from "../Modals/RocketModal/RocketModal";
+import { formatDateTime, getLaunchStatus } from "../utils";
 
 const TableComponent = () => {
-  const { spacexData, loading } = useSpacexData();
+  const { spacexData, loading, filters } = useSpacexData();
   const dataperPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [modal, setModal] = useState(false);
+  const [singleRocketData, setSingleRocketData] = useState(null);
 
   useEffect(() => {
     if (spacexData?.length > 0) {
       setTotalPages(Math.ceil(spacexData.length / dataperPage)); //111/12 ==> 10
+    } else {
+      setTotalPages(0);
     }
-  }, [spacexData, dataperPage]);
+  }, [spacexData, dataperPage, filters]);
 
   const endIndex = dataperPage * currentPage; // 12*1=12
   const startIndex = endIndex - dataperPage; //12-12=0
   const paginatedSpaceData = spacexData?.slice(startIndex, endIndex); //(0,12)==11
 
-  const formatDateTime = (dateString) => {
-    const date = new Date(dateString);
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    const datePart = date.toLocaleDateString("en-GB", options);
-    const timePart = date.toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
-    return `${datePart} at ${timePart}`;
-  };
-
-  const getLaunchStatus = (launch) => {
-    if (launch?.upcoming) {
-      return "Upcoming";
-    } else if (launch?.launch_success) {
-      return "Success";
-    } else {
-      return "Failed";
-    }
-  };
   return (
     <>
       <div className="table-container">
@@ -55,7 +40,7 @@ const TableComponent = () => {
           </thead>
 
           {loading && <Loader />}
-          {!loading && paginatedSpaceData.length === 0 ? (
+          {!loading && paginatedSpaceData?.length === 0 ? (
             <div className="noresult-row ">
               <div className="noresult">
                 No Results found for specified filter
@@ -68,6 +53,10 @@ const TableComponent = () => {
                   <tr
                     key={spaceData.flight_number}
                     className="table-content-row "
+                    onClick={() => {
+                      setModal(true);
+                      setSingleRocketData(spaceData);
+                    }}
                   >
                     <td className="table-row-data ">
                       {spaceData?.flight_number < 10
@@ -113,6 +102,13 @@ const TableComponent = () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
+      {modal && (
+        <RocketModal
+          modal={modal}
+          setModal={setModal}
+          singleRocketData={singleRocketData}
+        />
+      )}
     </>
   );
 };

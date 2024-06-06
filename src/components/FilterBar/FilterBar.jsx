@@ -1,23 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { launchesDetails, timeFrameFilter } from "./constants";
 import { CiCalendar, CiFilter } from "react-icons/ci";
 import "./FilterBar.css";
 import { useSpacexData } from "../../context/SpaceDataContext";
+import CalendarModal from "../Modals/CalendarModal/CalendarModal";
+import { IoIosArrowDown } from "react-icons/io";
+import { findRangeFilter } from "../utils";
 
 const FilterBar = () => {
   const { filters, setFilters, handleSelectChange } = useSpacexData();
+  const [modal, setModal] = useState(false);
 
   return (
     <div className="filtercontainer">
-      <div className="timeframefilter">
-        <CiFilter size={20} />
-        <select name="timeframe" id="timeframefilter" className="selectoption">
-          {timeFrameFilter?.map((timeframe) => (
-            <option value={timeframe} key={timeframe} className="option">
-              {timeframe}
-            </option>
-          ))}
-        </select>
+      <div className="pastfilter" onClick={() => setModal(true)}>
+        <CiCalendar size={20} />
+        <p>
+          {findRangeFilter(filters?.timeFrameFilter)?.name ?? "Past 6 Months"}
+        </p>
+        <span style={{ marginTop: "7px" }}>
+          <IoIosArrowDown />
+        </span>
       </div>
       <div className="timeframefilter">
         <CiFilter size={20} />
@@ -42,7 +45,19 @@ const FilterBar = () => {
             </option>
           ))}
         </select>
+        <div
+          className="clear-filters"
+          onClick={() =>
+            setFilters({
+              timeFrameFilter: "",
+              launchFilter: "launches",
+            })
+          }
+        >
+          <p>Clear filters</p>
+        </div>
       </div>
+      {modal && <CalendarModal setModal={setModal} />}
     </div>
   );
 };

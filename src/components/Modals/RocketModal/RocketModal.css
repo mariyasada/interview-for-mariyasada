@@ -72,7 +72,7 @@ img{
     justify-content: center;
     gap:16px;
 }
-.status-container>div{
+.site-name{
     font-weight: bold;
    
 }

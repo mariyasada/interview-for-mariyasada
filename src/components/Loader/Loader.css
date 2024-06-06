@@ -1,23 +1,35 @@
-
-
 .loader {
-    width: 100px;
-    --b: 80px; 
-    position: fixed;
-  top: 50%;
+  width: 100px;
+  aspect-ratio:1;
+  position: fixed;
+  top: 45%;
   left: 45%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    padding: 1px;
-    background: conic-gradient(#0000 10%,#717171) content-box;
-    -webkit-mask:
-      repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
-      radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
-    -webkit-mask-composite: destination-in;
-            mask-composite: intersect;
-    animation:l4 1s infinite steps(10);
-  }
-  @keyframes l4 {to{transform: rotate(1turn)}}
+  display:grid;
+  -webkit-mask: conic-gradient(from 15deg,#0000,#000);
+  animation: l26 1s infinite steps(11);
+}
+.loader,
+.loader:before,
+.loader:after{
+  background:
+    radial-gradient(closest-side at 30% 10.5%,
+    #c3c3c4 90%,#0000) 50% 0/20% 80% repeat-y,
+    radial-gradient(closest-side at 10.5% 30%,
+    #88888b 96%,#0000) 0 50%/80% 20% repeat-x;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.loader:after {
+  transform: rotate(60deg);
+}
+
+@keyframes l26 {
+  100% {transform:rotate(1turn)}
+}
 
 
   

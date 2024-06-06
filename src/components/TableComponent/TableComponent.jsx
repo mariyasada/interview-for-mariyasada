@@ -40,7 +40,9 @@ const TableComponent = () => {
           </thead>
 
           {loading && <Loader />}
-          {!loading && paginatedSpaceData?.length === 0 ? (
+          {loading ? (
+            <Loader />
+          ) : paginatedSpaceData?.length === 0 ? (
             <div className="noresult-row ">
               <div className="noresult">
                 No Results found for specified filter

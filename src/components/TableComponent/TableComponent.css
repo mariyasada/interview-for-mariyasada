@@ -1,7 +1,8 @@
 .table-container {
     background-color: white;
     width: 80%;
-    min-height: 60vh;
+    min-height: 57vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
@@ -72,7 +73,7 @@ table {
 
   .noresult{
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 46%;
     transform: translate(-30%,-50%);
   }
@@ -80,6 +81,5 @@ table {
     width: 410px;
   }
  .table td:nth-child(3),.table td:nth-child(4) ,.table td:nth-child(5),.table td:nth-child(6),.table td:nth-child(7){
-    width: 180px;
-  
+    width: 190px;  
   }

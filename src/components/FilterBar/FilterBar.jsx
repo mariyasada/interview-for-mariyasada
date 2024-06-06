@@ -23,7 +23,7 @@ const FilterBar = () => {
         </span>
       </div>
       <div className="timeframefilter">
-        <CiFilter size={20} />
+        <CiFilter size={20} style={{ marginRight: "-4px" }} />
         <select
           name={filters?.launchFilter}
           id={filters?.launchFilter}

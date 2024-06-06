@@ -11,6 +11,6 @@ export const launchesDetails = [
   { name: "All Launches", value: "launches" },
   { name: "Upcoming Launches", value: "upcomingLaunches" },
   { name: "Past Launches", value: "pastlaunches" },
-  { name: "SuccessFul Launches", value: "successlaunches" },
+  { name: "Successful Launches", value: "successlaunches" },
   { name: "Failed Launches", value: "failedlaunches" },
 ];

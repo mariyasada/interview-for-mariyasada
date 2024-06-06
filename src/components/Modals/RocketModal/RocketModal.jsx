@@ -24,7 +24,7 @@ const RocketModal = ({ singleRocketData, setModal }) => {
           <img src={links?.mission_patch_small} alt="rocket_image" />
           <div className="status-and-name-container">
             <div className="status-container">
-              <div>{launch_site?.site_name}</div>
+              <div className="site-name">{launch_site?.site_name}</div>
               <div
                 className={`table-row-data-div ${
                   getLaunchStatus(singleRocketData) === "Failed"

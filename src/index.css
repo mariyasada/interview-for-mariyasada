@@ -14,21 +14,26 @@ code {
 
 .status-failed{
   background: rgb(238, 205, 205);
-  color: red;
+  color: #981B1C;
 }
 .status-success{
   background: #DEF7EC;
-  color: green;
+  color:  #03543F;
 }
 .status-upcoming{
-  background: rgb(248, 248, 174);
-  color: darkgoldenrod
+  background: #FEF3C7;
+  color: #92400F;
 }
 .table-row-data-div{
   padding: 4px 12px ;
-  width: 72px;
+  width: 82px;
+  font-size: 12px;
   height: 21px;
   border-radius: 20px;
   text-align: center;
-  font-weight: bold;
+  line-height: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

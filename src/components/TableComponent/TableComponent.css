@@ -69,6 +69,8 @@ table {
     align-items: center;
     font-size: 16px;
     justify-content: center;
+    color:#374151;
+    font-weight: 500;;
   }
 
   .noresult{
